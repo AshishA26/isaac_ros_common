@@ -284,6 +284,8 @@ docker run -it --rm \
     --privileged \
     --network host \
     --ipc=host \
+    --device=/dev/ttyUSB0 \
+    -v /dev/shm:/dev/shm \
     ${DOCKER_ARGS[@]} \
     -v $ISAAC_ROS_DEV_DIR:/workspaces/isaac_ros-dev \
     -v /etc/localtime:/etc/localtime:ro \

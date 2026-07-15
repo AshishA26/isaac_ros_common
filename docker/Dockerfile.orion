@@ -1,0 +1,17 @@
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+
+RUN apt-get update && apt-get install -y \
+    ros-humble-slam-toolbox \
+    ros-humble-rmw-cyclonedds-cpp \
+    ros-humble-sllidar-ros2 \
+    ros-humble-xacro \
+    ros-humble-teleop-twist-keyboard \
+    ros-humble-joy \
+    ros-humble-teleop-twist-joy \
+    python3-serial \
+    xterm \
+    ros-humble-foxglove-bridge
+
+ENV LD_LIBRARY_PATH=/opt/ros/humble/share/gxf_isaac_optimizer/gxf/lib:${LD_LIBRARY_PATH}
+RUN echo "source /opt/ros/humble/setup.bash" >> /etc/bash.bashrc
